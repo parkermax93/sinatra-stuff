@@ -1,0 +1,9 @@
+class CreateGames < ActiveRecord::Migration
+  def change
+    create_table :games do |t|
+      t.string :name 
+      t.integer :developer_id
+      t.integer :review_id
+    end
+  end
+end
