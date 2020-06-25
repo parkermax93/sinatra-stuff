@@ -6,4 +6,7 @@ end
 
 run ApplicationController
 use Rack::MethodOverride
-# use (MORE CONTROLLERS HERE)
+run DevelopersController
+run GamesController
+run ReviewsController
+run UsersController
