@@ -3,6 +3,7 @@ class UsersController < ApplicationController
         @user = User.find_by_slug(params[:slug])
         erb :'users/show'
     end
+
     get '/signup' do
         if !logged_in?
             erb :'users/signup'
@@ -10,7 +11,8 @@ class UsersController < ApplicationController
             redirect to '/games'
         end
     end
-    post '/signup' do
+
+    post '/users/signup' do
         if params[:name] == "" || params[:email] == "" || params[:password] == ""
             redirect to '/signup'
         else
@@ -20,6 +22,7 @@ class UsersController < ApplicationController
             redirect to '/games'
         end
     end
+
     get '/login' do
         if !logged_in?
             erb :'users/login'
@@ -27,6 +30,7 @@ class UsersController < ApplicationController
             redirect to '/games'
         end
     end
+
     post '/login' do
         binding.pry
         user = User.find_by(params[:name])
@@ -37,6 +41,7 @@ class UsersController < ApplicationController
             redirect to '/signup'
         end
     end
+
     get '/logout' do
         session.destroy
         redirect to '/'
