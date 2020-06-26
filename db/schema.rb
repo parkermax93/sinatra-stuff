@@ -13,18 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20200625033208) do
 
-  create_table "developers", force: :cascade do |t|
+  create_table "games", force: :cascade do |t|
     t.string "name"
   end
 
-  create_table "games", force: :cascade do |t|
-    t.string  "name"
-    t.integer "developer_id"
-    t.integer "review_id"
-  end
-
   create_table "reviews", force: :cascade do |t|
-    t.string "review"
+    t.string  "review"
+    t.integer "game_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
