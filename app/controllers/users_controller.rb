@@ -33,7 +33,8 @@ class UsersController < ApplicationController
 
     post '/login' do
         binding.pry
-        user = User.find_by(params[:name])
+        user = User.find_by_name(params[:name])
+        # user = User.find_by(name: params[:name])
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
             erb :'games/index'
