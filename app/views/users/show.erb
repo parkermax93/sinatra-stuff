@@ -1,0 +1,6 @@
+<p> Here are your reviews, <%= current_user.name %>
+<% @user.reviews.each do |review| %>
+  <div>
+    <%= review.content %>
+  </div>
+<% end %>
