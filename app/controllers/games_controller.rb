@@ -44,7 +44,7 @@ class GamesController < ApplicationController
             if @game && @game.user_id == current_user.id 
                 erb :'games/edit'
             else
-                redirect to '/films'
+                redirect to '/games'
             end
         else
             redirect to 'login'
@@ -61,10 +61,10 @@ class GamesController < ApplicationController
                     if @game.update(title: params[:title], user_id: current_user.id)
                         redirect to "/games/#{@game.id}"
                     else
-                        redirect to "/films/#{game.id}/edit"
+                        redirect to "/games/#{game.id}/edit"
                     end
                 else 
-                    redirect to "/films"
+                    redirect to "/games"
                 end
             end
         else
@@ -76,7 +76,7 @@ class GamesController < ApplicationController
         if logged_in?
             @game = Game.find_by_id(params[:id])
             if @game && @game.user.id == current_user.id 
-                @gmae.delete 
+                @game.delete 
             end
             redirect to "/games"
         else redirect to "/logged_in"

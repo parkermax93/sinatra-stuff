@@ -1,6 +1,6 @@
-<p> Here are your reviews, <%= current_user.name %>
-<% @user.reviews.each do |review| %>
+<p> Here are your games, <%= current_user.name %>
+<% @user.games.each do |game| %>
   <div>
-    <%= review.content %>
+    <%= game.content %>
   </div>
 <% end %>

@@ -1,3 +1,8 @@
-<p> Welcome, <%= current_user.name %>.<p>
+Welcome <%= current_user.name %>!
 <h2> Games </h2>
+<% @game.each do |g| %>
+ <div>
+<li><a href="/games/<%= g.id %>"><%= g.title %></a></li>
+ </div>
 <% end %>
+<a href="/games/new" > Add a game </a>
