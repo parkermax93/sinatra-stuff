@@ -31,7 +31,7 @@ class UsersController < ApplicationController
         # user = User.find_by_name(params[:name]) -------- other way of doing it
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
-            erb :'games/index'
+            redirect to '/games'
         else
             redirect to '/signup'
         end
