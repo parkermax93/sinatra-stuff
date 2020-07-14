@@ -16,8 +16,13 @@
   <body>
     <div class="wrapper">
     <div class=""topnav">
-    <a href="/games">Games</a>
+    <% if logged_in?%>
+
+    <a href="/games">All Games</a>
+    <a href="/show">Your Games</a>
+    <a href="/games/new" > Add A Game </a>
     <a href="/logout">Logout</a>
+    <% end %>
     </div>
 
         <%= yield %>
