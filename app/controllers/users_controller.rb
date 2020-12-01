@@ -28,7 +28,6 @@ class UsersController < ApplicationController
 
     post '/login' do
         user = User.find_by(:name => params[:name])
-        # user = User.find_by_name(params[:name]) -------- other way of doing it
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
             redirect to '/games'

@@ -1,7 +1,6 @@
 class GamesController < ApplicationController
     get '/games' do
         if logged_in?
-            # @game = Game.all 
             @game = Game.all.sort_by(&:title)
             erb :"/games/index"
         else
